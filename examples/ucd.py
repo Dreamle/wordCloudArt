@@ -21,7 +21,7 @@ INPUTMASK = "img/bear_mask2.png"
 #INPUTMASK = "img/alice_mask.png"
 #INPUTMASK = "img/page_mask_72.png"
 
-OUTPUTFILE = "output/bear_full_teal.jpg"
+OUTPUTFILE = "output/bear_full_teal.pdf"
 
 # Read the whole text.
 text = open(path.join(d, INPUTTEXT)).read()
