@@ -17,7 +17,7 @@ d = path.dirname(__file__)
 #INPUTTEXT = 'text/alice.txt'
 INPUTTEXT = 'text/maria_text_all.txt'
 
-INPUTMASK = "img/bear_mask2.png"
+INPUTMASK = "img/bear_honey_mask8x10.png"
 #INPUTMASK = "img/alice_mask.png"
 #INPUTMASK = "img/page_mask_72.png"
 
@@ -30,6 +30,8 @@ text = open(path.join(d, INPUTTEXT)).read()
 # taken from
 # http://www.stencilry.org/stencils/movies/alice%20in%20wonderland/255fk.jpg
 alice_mask = np.array(Image.open(path.join(d, INPUTMASK)))
+
+print("read in image and mask file");
 
 wordToRemove = ("end", "citep", "Figure", "figure", "fig", "used", "using", "cc",
 	"xx", "ref", "table", "text", "c", "g", "H", "B", "t", "cdot", 
@@ -72,9 +74,11 @@ def maria_color_fun(word=None, font_size=None, position=None,
     #return "hsl(%d, 80%%, 50%%)" % random_state.randint(0, 255)
     
 
-wc = WordCloud(background_color="white", max_words=1500, mask=alice_mask,
+wc = WordCloud(background_color="white", max_words=2000, mask=alice_mask,
                stopwords=STOPWORDS.update(wordToRemove), color_func=maria_color_fun,
                min_font_size=8)
+
+print("going to generate the cloud")
 # generate word cloud
 wc.generate(text)
 print(wc.max_words)
